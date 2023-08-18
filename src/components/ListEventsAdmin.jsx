@@ -7,7 +7,7 @@ const ListEventsAdmin = () => {
 
     const [events, setEvents] = useState([]);
 
-    const password = import.meta.env.VITE_ADMIN_PASSWORD;
+    const password = "123";
 
     const getEvents = async() => {
         try {

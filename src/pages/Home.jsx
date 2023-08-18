@@ -5,7 +5,7 @@ import logo from '../assets/wingman-logo-white.png'
 
 const Home = () => {
 
-    const password = import.meta.env.VITE_ADMIN_PASSWORD;
+    const password = "123";
 
     function Admin() {
         // let enteredPassword = prompt("Enter the admin password to gain access to the admin view");

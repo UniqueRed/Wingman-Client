@@ -3,7 +3,7 @@ import logo from '../assets/wingman-logo-white.png'
 
 const Navbar = () => {
 
-    const password = import.meta.env.VITE_ADMIN_PASSWORD;
+    const password = "123";
 
     let mode = localStorage.getItem("lightMode");
 

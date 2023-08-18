@@ -12,7 +12,7 @@ const CreateCard = () => {
     const [description, setDescription] = useState("");
     const [email, setContact] = useState("");
 
-    const password = import.meta.env.VITE_ADMIN_PASSWORD;
+    const password = "123";
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
