@@ -1,0 +1,26 @@
+<>
+        {/* <EditModal/> */}
+        <hr></hr>
+        <h1>Upcoming Events</h1>
+        {events.length === 0 ? <p>No upcoming events</p> : null}
+        
+        {events.map(event => (
+            <div className="wrapper" key={event.id}>
+                <div className="accordion">
+                    <input type="checkbox" name="tab" id={"tab" + event.id}></input>
+                    <label for={"tab" + event.id}className="title">
+                        <span>{event.eventtitle}</span>
+                    </label>
+                    <label className="expand"></label>
+                    <div className="accordion-body">
+                        <p><b>Date: </b>{event.eventdate}</p>
+                        <p><b>Time: </b>{event.eventtime}</p>
+                        <p><b>Hours: </b>{event.eventhours}</p>
+                        <p><b>Location: </b>{event.eventlocation}</p>
+                        <p><b>Description: </b>{event.eventdescription}</p>
+                        <p><b>Contact: </b><a href = {"mailto:" + event.contactemail}>{event.contactemail}</a></p>
+                    </div>
+                </div>
+            </div>
+        ))}
+    </>

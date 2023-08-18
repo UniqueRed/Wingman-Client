@@ -1,0 +1,36 @@
+
+HTML
+<>
+        {/* <EditModal/> */}
+        <hr></hr>
+        <h1>Upcoming Events</h1>
+        {events.length === 0 ? <p>No upcoming events</p> : null}
+        {events.map(event => (
+            <div key={event.id}>
+                <CAccordion className="accordian" style={accordianStyles} activeItemKey={0}>
+                    <CAccordionItem itemKey={event.id}>
+                        <CAccordionHeader><b>{event.eventtitle}</b></CAccordionHeader>
+                        <CAccordionBody>
+                            <p id={"date" + event.id}><b>Date: </b>{event.eventdate}</p>
+                            <p id={"time" + event.id}><b>Time: </b>{event.eventtime}</p>
+                        </CAccordionBody>
+                    </CAccordionItem>
+                </CAccordion>
+                <div style={{height: "10px"}}></div>
+            </div>
+        ))}
+    </>
+
+
+    <div className="container" key={event.id}>
+                <div className="accordion">
+                    <div className="accordion-item" id={"accordion" + event.id}>
+                        <div className="accordion-title" href={"#accordion" + event.id}>
+                            <a>{event.eventtitle}</a>
+                        </div>
+                        <div className="accordion-body">
+                            {event.eventdescription}
+                        </div>
+                    </div>
+                </div>
+            </div>

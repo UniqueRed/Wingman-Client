@@ -1,0 +1,44 @@
+HTML
+<>
+        {/* <EditModal/> */}
+        <hr></hr>
+        <h1>Upcoming Events</h1>
+        {events.length === 0 ? <p>No upcoming events</p> : null}
+        <div className="event-card-holder">
+            {events.map(event => (
+                <div key={event.id} className="event-card">
+                    {/* <div className='card-split'> */}
+                        <div style={{textAlign: "center", height: "80px", padding: "0px"}} className="event-card-section">
+                            <h2>{event.eventtitle}</h2>
+                        </div>
+                        <div className="event-card-section">
+                            <p id={"date" + event.id} onLoad={formatDate(event.id)}><b>Date:</b> {event.eventdate}</p>
+                            <p id={"time" + event.id} onLoad={formatTime(event.id)}><b>Time:</b> {event.eventtime}</p>
+                        </div>
+                        <div id={"secondary-info" + event.id} className="hidden event-card-section">
+                            <p><b>Location:</b> {event.eventlocation}</p>
+                            <p><b>Hours:</b> {event.eventhours}</p>
+                            <p><b>Contact:</b> <a href = {"mailto:" + event.contactemail}>{event.contactemail}</a></p>
+                        </div>
+                        <div className="event-card-section" style={{display: "flex", justifyContent: "center"}}>
+                            <button onClick={handleExpand} style={{width: "90%", height: "40px", textAlign: "center", color: "#33512A", backgroundColor: 'transparent'}} className='button'><span className="material-symbols-rounded">expand_more</span></button>
+                        </div>
+                    {/* </div> */}
+                    {/* <div className='card-split'> */}
+                        <div id={"description" + event.id} style={{height: "150px"}} className="hidden event-card-section">
+                            <p><b>Description:</b> {event.eventdescription}</p>
+                        </div>
+                        <div className="event-card-section" style={{display: "flex", justifyContent: "center"}}>
+                            <button style={{width: "90%"}} className='button add-to-calender' onClick={() => addEventToGoogleCalender(event.id)}>Add To Calender</button>
+                            <div style={{width: "50px"}}/>
+                            <button style={{width: "90%"}} className='button' onClick={() => handleRegisterClick(event.id)}>Register</button>
+                            <div style={{width: "50px"}}/>
+                            <button style={{width: "90%"}} onClick={() => handleEventDelete(event.id)} className='button delete'>Delete</button>
+                        </div>
+                    {/* </div> */}
+                </div>
+            ))}
+        </div>
+    </>
+
+CSS

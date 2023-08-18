@@ -1,0 +1,39 @@
+HTML
+<>
+        {/* <EditModal/> */}
+        <hr></hr>
+        <h1>Upcoming Events</h1>
+        {events.length === 0 ? <p>No upcoming events</p> : null}
+        <div className="table-holder">
+            <table className='content-table'>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th className="secondary-info">Hours</th>
+                        <th className="secondary-info">Location</th>
+                        <th>Contact</th>
+                        {/* <th style={{textAlign: "center"}}>Register</th>
+                        <th style={{textAlign: "center"}}>Add To Calendar</th>
+                        <th style={{textAlign: "center"}}>Delete</th> */}
+                    </tr>
+                </thead>
+                <tbody>
+                    {events.map(event => (
+                        <tr id="tr" key={event.id}>
+                            <td data-title="Title: " event-title={event.eventtitle}>{event.eventtitle}</td>
+                            <td data-title="Date: " onLoad={formatDate(event.id)} id={"date" + event.id}>{event.eventdate}</td>
+                            <td data-title="Time: " onLoad={formatTime(event.id)} id={"time" + event.id}>{event.eventtime}</td>
+                            <td data-title="Hours: " >{event.eventhours}</td>
+                            <td data-title="Location: ">{event.eventlocation}</td>
+                            <td data-title="Contact: "><a href = {"mailto:" + event.contactemail}>{event.contactemail}</a></td>
+                            {/* <td><button style={{width: "100%"}} className='button' onClick={() => handleRegisterClick(event.id)}>Register</button></td>
+                            <td><button style={{width: "100%"}} className='button add-to-calender' onClick={() => addEventToGoogleCalender(event.id)}>Calender</button></td>
+                            <td><button style={{width: "100%"}} onClick={() => handleEventDelete(event.id)} className='button delete'>Delete</button></td> */}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </>
